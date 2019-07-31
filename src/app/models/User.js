@@ -40,6 +40,12 @@ const userSchema = new mongoose.Schema(
   { toJSON: { virtuals: true } }
 )
 
+userSchema.virtual("tools", {
+  ref: "Tool",
+  localField: "_id",
+  foreignField: "user"
+})
+
 userSchema.methods.hashPassword = async function() {
   this.password = await bcrypt.hash(this.password, 8)
 

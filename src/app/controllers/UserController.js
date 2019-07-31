@@ -2,6 +2,8 @@ class UserController {
   async show(req, res) {
     const { user } = req
 
+    await user.populate("tools").execPopulate()
+
     return res.status(200).send(user)
   }
 
@@ -13,7 +15,9 @@ class UserController {
 
       return res.status(200).send(user)
     } catch (err) {
-      return res.status(500).send({ error: "Couldn't delete user" })
+      return res
+        .status(500)
+        .send({ error: "Não foi possível deletar o usuário" })
     }
   }
 }
