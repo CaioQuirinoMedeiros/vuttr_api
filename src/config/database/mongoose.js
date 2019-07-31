@@ -1,14 +1,11 @@
 const mongoose = require("mongoose")
 
 try {
-  mongoose.connect(
-    "mongodb+srv://caioquirino:123123123@api-je3kv.mongodb.net/test?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useCreateIndex: true,
-      useFindAndModify: false
-    }
-  )
+  mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
 } catch (err) {
   console.log(err)
 }
