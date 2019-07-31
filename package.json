@@ -4,16 +4,19 @@
   "description": "Very useful tools to remember",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "author": "Caio Quirino",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.6.7"
+    "mongoose": "^5.6.7",
+    "validator": "^11.1.0"
   },
   "devDependencies": {
     "eslint": "^6.1.0",
