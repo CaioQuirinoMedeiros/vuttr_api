@@ -1,3 +1,4 @@
+/* eslint-disable require-atomic-updates */
 const jwt = require("jsonwebtoken")
 const User = require("../models/User")
 
@@ -13,7 +14,8 @@ const auth = async (req, res, next) => {
       throw new Error()
     }
 
-    req = { ...req, token, user }
+    req.user = user
+    req.token = token
 
     next()
   } catch (err) {
