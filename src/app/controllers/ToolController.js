@@ -12,7 +12,6 @@ class ToolController {
 
       return res.status(201).send(tool)
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Não foi possível adicionar a ferramenta" })
@@ -22,8 +21,6 @@ class ToolController {
   async index(req, res) {
     const { user } = req
     const { tag, title } = req.query
-    console.log("TAG: ", tag)
-    console.log("TTLE: ", title)
 
     try {
       const query = Tool.find({ user: user._id })
@@ -31,14 +28,13 @@ class ToolController {
       if (tag) {
         query.find({ tags: { $regex: tag } })
       } else if (title) {
-        query.find({ title: { $regex: title } })
+        query.find({ title: { $regex: title, $options: "i" } })
       }
 
       const tools = await query.exec()
 
       return res.status(200).send(tools)
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Erro ao buscar as ferramentas" })
@@ -58,7 +54,6 @@ class ToolController {
 
       return res.status(200).send(tool)
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Erro ao buscar as ferramentas" })
@@ -81,7 +76,6 @@ class ToolController {
 
       return res.status(200).send(tool)
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Não foi possível editar a ferramenta" })
@@ -101,7 +95,6 @@ class ToolController {
 
       return res.status(200).send(tool)
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Não foi possível deletar a ferramenta" })

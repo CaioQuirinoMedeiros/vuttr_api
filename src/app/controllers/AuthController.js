@@ -11,7 +11,6 @@ class AuthController {
 
       return res.status(201).send({ user, token })
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Não foi possível criar o cadastro" })
@@ -28,7 +27,6 @@ class AuthController {
 
       return res.status(200).send({ user, token })
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Erro ao fazer login" })
@@ -44,7 +42,6 @@ class AuthController {
 
       return res.status(200).send()
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Não foi possível fazer logout" })
@@ -61,7 +58,6 @@ class AuthController {
 
       return res.status(200).send()
     } catch (err) {
-      console.log(err)
       return res
         .status(err.status || 400)
         .send({ error: "Não foi possível fazer logout de todos os acessos" })
