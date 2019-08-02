@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "set NODE_ENV=test jest"
   },
   "author": "Caio Quirino",
   "license": "ISC",
@@ -19,7 +20,10 @@
     "validator": "^11.1.0"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "@types/jest": "^24.0.16",
     "eslint": "^6.1.0",
+    "jest": "^24.8.0",
     "nodemon": "^1.19.1"
   }
 }

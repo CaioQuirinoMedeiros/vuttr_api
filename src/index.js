@@ -1,8 +1,8 @@
 const express = require("express")
 const cors = require("cors")
-require("dotenv").config()
 
-require("./config/database/mongoose")()
+require("./bootstrap")
+require("./database")
 const auth = require("./app/middlewares/auth")
 const authRoutes = require("./routes/auth")
 const userRoutes = require("./routes/user")
