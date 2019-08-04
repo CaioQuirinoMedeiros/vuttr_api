@@ -18,15 +18,14 @@ describe("Auth", () => {
     mongoServer = new MongoMemoryServer()
     const uri = await mongoServer.getConnectionString()
 
-    mongoose.connect(uri, {
+    await mongoose.connect(uri, {
       useNewUrlParser: true,
       useCreateIndex: true
     })
   })
 
   afterAll(async done => {
-    mongoose.disconnect(done)
-    await mongoServer.stop()
+    await mongoose.disconnect(done)
   })
 
   afterEach(async () => {
@@ -144,5 +143,21 @@ describe("Auth", () => {
       .set("Authorization", `Bearer ${token}`)
 
     expect(response.status).toBe(200)
+  })
+
+  it("should not accept older token", async () => {
+    const user = await factory.create("User")
+
+    const token = await user.generateAuthToken()
+
+    user.tokens = []
+
+    await user.save()
+
+    const response = await request(app())
+      .post("/logoutAll")
+      .set("Authorization", `Bearer ${token}`)
+
+    expect(response.status).toBe(401)
   })
 })
