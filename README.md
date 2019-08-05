@@ -6,11 +6,7 @@
 
 Para criar um usuário basta enviar um JSON com os campos `name`, `email` e `password`. O email tem que ser um email válido e a senha deve ter no mínimo 6 caracteres. A resposta contém as informações do usuário e um token.
 
-- Response 200 (text/plain)
-
-        Hello World!
-
-* Request (application/json)
+- Request (application/json)
 
   - Body
 
@@ -20,13 +16,13 @@ Para criar um usuário basta enviar um JSON com os campos `name`, `email` e `pas
           "password": "123456"
           }
 
-* Response 201 (application/json)
+- Response 201 (application/json)
 
   - Body
 
           {
           "user": {
-          "\_id": "generated_id",
+          "_id": "generated_id",
           "name": "your_name",
           "email": "your_email@email.com",
           },
