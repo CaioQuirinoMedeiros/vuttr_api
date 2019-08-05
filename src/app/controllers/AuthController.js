@@ -32,6 +32,7 @@ class AuthController {
         .send({ error: "Erro ao fazer login" })
     }
   }
+
   async logout(req, res) {
     const { token: activeToken, user } = req
 
