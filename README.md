@@ -9,6 +9,7 @@
 To create a user, send a JSON with a name, an valid email and a password with at least 6 characters. The response will contain the user information and a token
 
 - Request (application/json)
+  -Body
 
         {
             "name": "Caio Quirino",
