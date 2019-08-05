@@ -6,28 +6,32 @@
 
 Para criar um usuário basta enviar um JSON com os campos `name`, `email` e `password`. O email tem que ser um email válido e a senha deve ter no mínimo 6 caracteres. A resposta contém as informações do usuário e um token.
 
-- Request (application/json)
+- Response 200 (text/plain)
+
+        Hello World!
+
+* Request (application/json)
 
   - Body
 
-    {
-    "name": "Caio Quirino",
-    "email": "caio.quirino.medeiros@gmail.com,
-    "password": "123456"
-    }
+          {
+          "name": "your_name",
+          "email": "your_email@email.com",
+          "password": "123456"
+          }
 
-- Response 201 (application/json)
+* Response 201 (application/json)
 
   - Body
 
-    {
-    "user": {
-    "\_id": "generated_id",
-    "name": "Caio Quirino",
-    "email": "caio.quirino.medeiros@gmail.com
-    },
-    "token": "generated_jwt_token"
-    }
+          {
+          "user": {
+          "\_id": "generated_id",
+          "name": "your_name",
+          "email": "your_email@email.com",
+          },
+          "token": "generated_jwt_token"
+          }
 
 ## Login [/login]
 
@@ -39,23 +43,23 @@ Para fazer login basta envar um json com `email` e `password`. A resposta contem
 
   - Body
 
-    {
-    "email": "caio.quirino.medeiros@gmail.com,
-    "password": "123456"
-    }
+          {
+          "email": "your_email@email.com",
+          "password": "123456"
+          }
 
 - Response 200 (application/json)
 
   - Body
 
-    {
-    "user": {
-    "\_id": "generated_id",
-    "name": "Caio Quirino",
-    "email": "caio.quirino.medeiros@gmail.com
-    },
-    "token": "generated_jwt_token"
-    }
+          {
+          "user": {
+          "\_id": "generated_id",
+          "name": "Caio Quirino",
+          "email": "caio.quirino.medeiros@gmail.com
+          },
+          "token": "generated_jwt_token"
+          }
 
 ## Logout [/logout]
 
@@ -67,7 +71,7 @@ Aqui é necessário enviar um token de autenticação. Uma resposta com status 2
 
   - Headers
 
-    Authorization: Bearer token
+          Authorization: Bearer token
 
 - Response 200 (application/json)
 
@@ -81,7 +85,7 @@ Da mesma forma que o logout, mas aqui todos os tokens do usuário serão deletad
 
   - Headers
 
-    Authorization: Bearer token
+          Authorization: Bearer token
 
 - Response 200 (application/json)
 
@@ -97,26 +101,26 @@ Apenas o `title` é obrigatório.
 
   - Body
 
-  {
-  "title": "tool_title",
-  "link": "tool_link",
-  "description": "tool_description",
-  "tags": [ "tag_1", "tag_2", "tag_3" ],
-  }
+          {
+          "title": "tool_title",
+          "link": "tool_link",
+          "description": "tool_description",
+          "tags": [ "tag_1", "tag_2", "tag_3" ],
+          }
 
 * Response 200 (application/json)
 
   - Body
 
-    [
-    {
-    "title": "tool_title",
-    "link": "tool_link",
-    "description": "tool_description",
-    "tags": [ "tag_1", "tag_2", "tag_3" ],
-    "user": "user_id"
-    }
-    ]
+          [
+          {
+          "title": "tool_title",
+          "link": "tool_link",
+          "description": "tool_description",
+          "tags": [ "tag_1", "tag_2", "tag_3" ],
+          "user": "user_id"
+          }
+          ]
 
 ### Update Tool [PUT][/tools/{tool_id}]
 
@@ -124,24 +128,24 @@ Apenas o `title` é obrigatório.
 
   - Body
 
-  {
-  "title": "tool_title_edited",
-  "tags": [ "tag_1", "tag_3" ],
-  }
+          {
+          "title": "tool_title_edited",
+          "tags": [ "tag_1", "tag_3" ],
+          }
 
 * Response 200 (application/json)
 
   - Body
 
-    [
-    {
-    "title": "tool_title_edited",
-    "link": "tool_link",
-    "description": "tool_description",
-    "tags": [ "tag_1", "tag_3" ],
-    "user": "user_id"
-    }
-    ]
+          [
+          {
+          "title": "tool_title_edited",
+          "link": "tool_link",
+          "description": "tool_description",
+          "tags": [ "tag_1", "tag_3" ],
+          "user": "user_id"
+          }
+          ]
 
 ### Get Tools [GET][/tools?title&tag]
 
@@ -151,22 +155,22 @@ Retorna todas as `tools`, podendo filtrar por `title` ou `tags`. Caso os dois pa
 
   - Body
 
-    [
-    {
-    "title": "tool_title",
-    "link": "tool_link",
-    "description": "tool_description",
-    "tags": [ "tag_1", "tag_2", "tag_3" ],
-    "user": "user_id"
-    },
-    {
-    "title": "tool_title",
-    "link": "tool_link",
-    "description": "tool_description",
-    "tags": [ "tag_1", "tag_2", "tag_3" ],
-    "user": "user_id"
-    }
-    ]
+          [
+          {
+          "title": "tool_title",
+          "link": "tool_link",
+          "description": "tool_description",
+          "tags": [ "tag_1", "tag_2", "tag_3" ],
+          "user": "user_id"
+          },
+          {
+          "title": "tool_title",
+          "link": "tool_link",
+          "description": "tool_description",
+          "tags": [ "tag_1", "tag_2", "tag_3" ],
+          "user": "user_id"
+          }
+          ]
 
 ### Get Tool [GET][/tools/{tool_id}]
 
@@ -174,13 +178,13 @@ Retorna todas as `tools`, podendo filtrar por `title` ou `tags`. Caso os dois pa
 
   - Body
 
-    {
-    "title": "tool_title",
-    "link": "tool_link",
-    "description": "tool_description",
-    "tags": [ "tag_1", "tag_2", "tag_3" ],
-    "user": "user_id"
-    }
+          {
+          "title": "tool_title",
+          "link": "tool_link",
+          "description": "tool_description",
+          "tags": [ "tag_1", "tag_2", "tag_3" ],
+          "user": "user_id"
+          }
 
 ### Delete Tool [DELETE][/tools/{tool_id}]
 
