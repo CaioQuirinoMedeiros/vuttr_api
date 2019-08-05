@@ -1,5 +1,13 @@
 # VUTTR API
 
+Esse projeto é o desafio backend da BossaBox. Foi utilizado ExpressJS e banco de dados MongoDB. Possui autenticação JWT.
+
+O frontend se encontra [nesse repositório](https://github.com/CaioQuirinoMedeiros/vuttr_web)
+
+# Setup
+
+É necessário definir a URL de conexão do MongoDB e o segredo JWT nas variáveis ambiente, como exemplificado no arquivo .env.example. Utilize `npm run test` para rodar os tests e `npm run dev` para rodar em ambiente de desenvolvimento
+
 ## Register [/register]
 
 ### Store a user [POST]
@@ -108,7 +116,6 @@ Apenas o `title` é obrigatório.
 
   - Body
 
-          [
           {
           "title": "tool_title",
           "link": "tool_link",
@@ -116,7 +123,6 @@ Apenas o `title` é obrigatório.
           "tags": [ "tag_1", "tag_2", "tag_3" ],
           "user": "user_id"
           }
-          ]
 
 ### Update Tool [PUT][/tools/{tool_id}]
 
@@ -133,7 +139,6 @@ Apenas o `title` é obrigatório.
 
   - Body
 
-          [
           {
           "title": "tool_title_edited",
           "link": "tool_link",
@@ -141,7 +146,6 @@ Apenas o `title` é obrigatório.
           "tags": [ "tag_1", "tag_3" ],
           "user": "user_id"
           }
-          ]
 
 ### Get Tools [GET][/tools?title&tag]
 
