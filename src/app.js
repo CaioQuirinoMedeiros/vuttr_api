@@ -3,6 +3,7 @@ const cors = require("cors")
 require("dotenv").config()
 
 require("./database")
+
 const auth = require("./app/middlewares/auth")
 const authRoutes = require("./routes/auth")
 const userRoutes = require("./routes/user")
