@@ -27,7 +27,7 @@ const toolSchema = new mongoose.Schema(
       ref: "User"
     }
   },
-  { toJSON: { virtuals: true } }
+  { toJSON: { virtuals: true }, timestamps: true }
 )
 
 toolSchema.methods.customUpdate = async function(updates) {
