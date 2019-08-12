@@ -1,3 +1,5 @@
+const Tool = require("../models/Tool")
+
 class UserController {
   async show(req, res) {
     const { user } = req
@@ -12,6 +14,7 @@ class UserController {
 
     try {
       await user.remove()
+      await Tool.deleteMany({ user: user._id })
 
       return res.status(200).send(user)
     } catch (err) {
