@@ -18,7 +18,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb-memory-server": "^5.1.10",
     "mongoose": "^5.6.7",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
